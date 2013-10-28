@@ -212,10 +212,12 @@ Strophe.addConnectionPlugin('register', {
             }
         }
 
-        if (register.length === 0) {
-            that._changeConnectStatus(Strophe.Status.REGIFAIL, null);
-            return;
-        } else this.enabled = true;
+        //Fixed by Jovi, some servers not respond register tag
+        this.enabled = true;
+        //if (register.length === 0) {
+        //    that._changeConnectStatus(Strophe.Status.REGIFAIL, null);
+        //    return;
+        //} else this.enabled = true;
 
         // send a get request for registration, to get all required data fields
         that._changeConnectStatus(Strophe.Status.REGISTERING, null);
